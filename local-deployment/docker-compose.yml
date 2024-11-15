@@ -1,0 +1,25 @@
+services:
+  tigerbeetle-0:
+    image: ghcr.io/tigerbeetle/tigerbeetle
+    command: "start --addresses=0.0.0.0:3001,0.0.0.0:3002,0.0.0.0:3003 /data/conf.tigerbeetle"
+    network_mode: host
+    volumes:
+      - ./tigerbeetle/node0/data:/data
+    security_opt:
+      - "seccomp=unconfined"
+  tigerbeetle-1:
+    image: ghcr.io/tigerbeetle/tigerbeetle
+    command: "start --addresses=0.0.0.0:3001,0.0.0.0:3002,0.0.0.0:3003 /data/conf.tigerbeetle"
+    network_mode: host
+    volumes:
+      - ./tigerbeetle/node1/data:/data
+    security_opt:
+      - "seccomp=unconfined"
+  tigerbeetle-2:
+    image: ghcr.io/tigerbeetle/tigerbeetle
+    command: "start --addresses=0.0.0.0:3001,0.0.0.0:3002,0.0.0.0:3003 /data/conf.tigerbeetle"
+    network_mode: host
+    volumes:
+      - ./tigerbeetle/node2/data:/data
+    security_opt:
+      - "seccomp=unconfined"
